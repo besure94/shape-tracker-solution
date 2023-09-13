@@ -40,7 +40,7 @@ namespace ShapeTracker.Models
       }
       else
       {
-        return "";
+        return "isosceles triangle";
       }
     }
   }
