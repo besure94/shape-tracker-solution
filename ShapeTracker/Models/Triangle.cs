@@ -38,6 +38,10 @@ namespace ShapeTracker.Models
       {
         return "scalene triangle";
       }
+      else if ((Side1 == Side2) && (Side1 == _side3))
+      {
+        return "equilateral triangle";
+      }
       else
       {
         return "isosceles triangle";
