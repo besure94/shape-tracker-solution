@@ -61,5 +61,14 @@ namespace ShapeTracker.Tests
       Assert.AreEqual(length3, result);
     }
 
+    [TestMethod]
+    public void SetSide3_SetsValueOfSide3_Void()
+    {
+      Rectangle newRectangle = new Rectangle(3, 6, 6);
+      int newLength3 = 6;
+      newRectangle.SetSide3(newLength3);
+      Assert.AreEqual(newLength3, newRectangle.GetSide3());
+    }
+
   }
 }
