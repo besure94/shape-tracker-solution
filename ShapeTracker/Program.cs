@@ -22,6 +22,7 @@ namespace ShapeTracker
       int length3 = int.Parse(stringNumber3);
       Triangle tri = new Triangle(length1, length2, length3);
       ConfirmOrEditTriangle(tri);
+      Triangle.ClearAll();
     }
 
     static void ConfirmOrEditTriangle(Triangle tri)
@@ -60,8 +61,9 @@ namespace ShapeTracker
       Console.WriteLine("-----------------------------------------");
       Console.WriteLine("What's next?");
       Console.WriteLine("Would you like to check a new triangle (new)?");
+      Console.WriteLine("Or would you like to see a list of all triangles you have created (list) ?");
       Console.WriteLine("Please enter 'new' to check the type of a new triangle.");
-      Console.WriteLine("Please enter 'list' to see a list of all triangles you have created.");
+      Console.WriteLine("You can also enter 'list' to see a list of all triangles you have created.");
       string userResponse = Console.ReadLine();
       if (userResponse == "new" || userResponse == "New")
       {
@@ -74,6 +76,19 @@ namespace ShapeTracker
         foreach (Triangle triangle in allTriangles)
         {
           Console.WriteLine($"You have a {triangle.CheckType()}.");
+        }
+        Console.WriteLine("Please enter 'clear' if you would like to remove all triangles and start over.");
+        Console.WriteLine("Otherwise, enter 'continue' to continue creating more triangles.");
+        string userInput = Console.ReadLine();
+        if (userInput == "clear" || userInput == "Clear")
+        {
+          Triangle.ClearAll();
+          Console.WriteLine("You have no triangles!");
+          Main();
+        }
+        else if (userInput == "continue" || userInput == "Continue")
+        {
+          Main();
         }
         Main();
       }
