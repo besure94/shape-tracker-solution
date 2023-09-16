@@ -10,12 +10,14 @@ namespace ShapeTracker.Models
     }
     public int Side2 { get; set; }
     private int _side3;
+    private int _side4;
 
-    public Rectangle(int length1, int length2, int length3)
+    public Rectangle(int length1, int length2, int length3, int length4)
     {
       _side1 = length1;
       Side2 = length2;
       _side3 = length3;
+      _side4 = length4;
     }
 
     public int GetSide3()
@@ -26,6 +28,11 @@ namespace ShapeTracker.Models
     public void SetSide3(int newValue)
     {
       _side3 = newValue;
+    }
+
+    public int GetSide4()
+    {
+      return _side4;
     }
   }
 }
