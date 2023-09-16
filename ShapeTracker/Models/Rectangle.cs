@@ -34,5 +34,10 @@ namespace ShapeTracker.Models
     {
       return _side4;
     }
+
+    public void SetSide4(int newValue)
+    {
+      _side4 = newValue;
+    }
   }
 }
