@@ -42,7 +42,11 @@ namespace ShapeTracker.Models
 
     public string CheckType()
     {
-      if ((Side1 == Side2) && (_side3 == _side4) || (Side1 == _side3 && Side2 == _side4))
+      if ((Side1 == Side2) && (_side3 == _side4) && (Side1 == _side3) && (Side2 == _side4))
+      {
+        return "square";
+      }
+      else if ((Side1 == _side3) && (Side2 == _side4))
       {
         return "rectangle";
       }

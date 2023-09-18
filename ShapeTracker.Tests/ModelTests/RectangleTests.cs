@@ -97,11 +97,19 @@ namespace ShapeTracker.Tests
     }
 
     [TestMethod]
-    public void CheckType_DeterminesWhenTrueRectangle_String()
+    public void CheckType_DeterminesWhenRectangle_String()
     {
-      Rectangle rectangle = new Rectangle(3, 3, 6, 6);
+      Rectangle rectangle = new Rectangle(3, 6, 3, 6);
       string rectangleType = rectangle.CheckType();
       Assert.AreEqual("rectangle", rectangleType);
+    }
+
+    [TestMethod]
+    public void CheckType_DeterminesWhenSquare_String()
+    {
+      Rectangle square = new Rectangle(6, 6, 6, 6);
+      string rectangleType = square.CheckType();
+      Assert.AreEqual("square", rectangleType);
     }
 
   }
