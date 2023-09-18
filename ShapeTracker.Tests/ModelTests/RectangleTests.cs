@@ -127,5 +127,16 @@ namespace ShapeTracker.Tests
       CollectionAssert.AreEqual(expected, actualResult);
     }
 
+    [TestMethod]
+    public void ClearAll_DeletesAllRectangleInList_Void()
+    {
+      Rectangle rect1 = new Rectangle(2, 6, 2, 6);
+      Rectangle rect2 = new Rectangle(4, 4, 4, 4);
+      Rectangle rect3 = new Rectangle(15, 30, 15, 30);
+      List<Rectangle> expected = new List<Rectangle> { };
+      Rectangle.ClearAll();
+      CollectionAssert.AreEqual(expected, Triangle.GetAll());
+    }
+
   }
 }
