@@ -13,6 +13,7 @@ namespace ShapeTracker.Models
     public int Side2 { get; set; }
     private int _side3;
     private static List<Triangle> _instances = new List<Triangle> {};
+    public string Guess { get; set; }
 
     public Triangle(int length1, int length2, int length3)
     {
@@ -20,6 +21,11 @@ namespace ShapeTracker.Models
       Side2 = length2;
       _side3 = length3;
       _instances.Add(this);
+    }
+
+    public Triangle(int length1, int length2, int length3, string userGuess) : this(length1, length2, length3)
+    {
+      Guess = userGuess;
     }
 
     public int GetSide3()
