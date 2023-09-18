@@ -138,5 +138,14 @@ namespace ShapeTracker.Tests
       CollectionAssert.AreEqual(expected, Triangle.GetAll());
     }
 
+    [TestMethod]
+    public void GetArea_CalculatesAreaOfRectangle_Void()
+    {
+      Rectangle rectangle = new Rectangle(2, 6, 2, 6);
+      int area = 12;
+      int rectangleArea = rectangle.GetArea();
+      Assert.AreEqual(area, rectangleArea);
+    }
+
   }
 }

@@ -4,7 +4,7 @@ namespace ShapeTracker.Models
 {
   public class Rectangle
   {
-    private int _side1;
+    private static int _side1;
     public int Side1
     {
       get { return _side1; }
@@ -14,7 +14,6 @@ namespace ShapeTracker.Models
     private int _side3;
     private int _side4;
     private static List<Rectangle> _instances = new List<Rectangle> {};
-
 
     public Rectangle(int length1, int length2, int length3, int length4)
     {
@@ -60,6 +59,12 @@ namespace ShapeTracker.Models
         return "not a rectangle";
       }
     }
+
+    public int GetArea()
+    {
+      return Side1 * Side2;
+    }
+
 
     public static List<Rectangle> GetAll()
     {
