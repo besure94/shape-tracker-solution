@@ -136,6 +136,37 @@ namespace ShapeTracker
       {
         CheckRectangleType(rect);
       }
+      else
+      {
+        Console.WriteLine("Let's fix your rectangle. Please enter the 4 sides again!");
+        string userNumber1 = Console.ReadLine();
+        Console.WriteLine("Enter another number:");
+        string userNumber2 = Console.ReadLine();
+        Console.WriteLine("Enter a third number:");
+        string userNumber3 = Console.ReadLine();
+        Console.WriteLine("Enter a fourth number:");
+        string userNumber4 = Console.ReadLine();
+        int rectangleLength1 = int.Parse(userNumber1);
+        int rectangleLength2 = int.Parse(userNumber2);
+        int rectangleLength3 = int.Parse(userNumber3);
+        int rectangleLength4 = int.Parse(userNumber4);
+        Rectangle rect = new Rectangle(rectangleLength1, rectangleLength2, rectangleLength3, rectangleLength4);
+        ConfirmOrEditRectangle(rect);
+        Rectangle.ClearAll();
+      }
+    }
+
+    static void CheckRectangleType(Rectangle rect)
+    {
+      string rectangleResult = tri.CheckType();
+      Console.WriteLine("-----------------------------------------");
+      Console.WriteLine("Your result is: " + rectangleResult + ".");
+      Console.WriteLine("-----------------------------------------");
+      Console.WriteLine("What's next?");
+      Console.WriteLine("Would you like to check a new rectangle (new)?");
+      Console.WriteLine("Or would you like to see a list of all rectangles you have created (list) ?");
+      Console.WriteLine("Please enter 'new' to check the type of a new rectangle.");
+      Console.WriteLine("You can also enter 'list' to see a list of all rectangles you have created.");
     }
   }
 }
