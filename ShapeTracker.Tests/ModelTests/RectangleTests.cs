@@ -6,8 +6,12 @@ using System;
 namespace ShapeTracker.Tests
 {
   [TestClass]
-  public class RectangleTests
+  public class RectangleTests : IDisposable
   {
+    public void Dispose()
+    {
+      Rectangle.ClearAll();
+    }
 
     [TestMethod]
     public void RectangleConstructor_CreatesInstanceOfRectangle_Rectangle()
@@ -110,6 +114,17 @@ namespace ShapeTracker.Tests
       Rectangle square = new Rectangle(6, 6, 6, 6);
       string rectangleType = square.CheckType();
       Assert.AreEqual("square", rectangleType);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsAllRectangleInstances_List()
+    {
+      Rectangle rect1 = new Rectangle(2, 6, 2, 6);
+      Rectangle rect2 = new Rectangle(4, 4, 4, 4);
+      Rectangle rect3 = new Rectangle(15, 30, 15, 30);
+      List<Rectangle> expected = new List<Rectangle> { rect1, rect2, rect3 };
+      List<Rectangle> actualResult = Rectangle.GetAll();
+      CollectionAssert.AreEqual(expected, actualResult);
     }
 
   }

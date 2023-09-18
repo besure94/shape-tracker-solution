@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace ShapeTracker.Models
 {
   public class Rectangle
@@ -11,6 +13,8 @@ namespace ShapeTracker.Models
     public int Side2 { get; set; }
     private int _side3;
     private int _side4;
+    private static List<Rectangle> _instances = new List<Rectangle> {};
+
 
     public Rectangle(int length1, int length2, int length3, int length4)
     {
@@ -18,6 +22,7 @@ namespace ShapeTracker.Models
       Side2 = length2;
       _side3 = length3;
       _side4 = length4;
+      _instances.Add(this);
     }
 
     public int GetSide3()
@@ -54,6 +59,16 @@ namespace ShapeTracker.Models
       {
         return "not a rectangle";
       }
+    }
+
+    public static List<Rectangle> GetAll()
+    {
+      return _instances;
+    }
+
+    public static void ClearAll()
+    {
+      _instances.Clear();
     }
   }
 }
