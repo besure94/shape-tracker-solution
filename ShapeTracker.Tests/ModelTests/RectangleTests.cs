@@ -88,5 +88,21 @@ namespace ShapeTracker.Tests
       Assert.AreEqual(newLength4, newRectangle.GetSide4());
     }
 
+    [TestMethod]
+    public void CheckType_DeterminesWhenNotARectangle_String()
+    {
+      Rectangle notARectangle = new Rectangle(3, 3, 6, 7);
+      string rectangleType = notARectangle.CheckType();
+      Assert.AreEqual("not a rectangle", rectangleType);
+    }
+
+    [TestMethod]
+    public void CheckType_DeterminesWhenTrueRectangle_String()
+    {
+      Rectangle rectangle = new Rectangle(3, 3, 6, 6);
+      string rectangleType = rectangle.CheckType();
+      Assert.AreEqual("rectangle", rectangleType);
+    }
+
   }
 }

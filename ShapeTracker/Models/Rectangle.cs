@@ -39,5 +39,17 @@ namespace ShapeTracker.Models
     {
       _side4 = newValue;
     }
+
+    public string CheckType()
+    {
+      if ((Side1 == Side2) && (_side3 == _side4))
+      {
+        return "rectangle";
+      }
+      else
+      {
+        return "not a rectangle";
+      }
+    }
   }
 }
