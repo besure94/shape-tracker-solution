@@ -31,20 +31,14 @@ namespace ShapeTracker
       }
       else if (inputtedShape == "rectangle" || inputtedShape == "Rectangle")
       {
-        Console.WriteLine("We'll calculate what type of rectangle you have based off of the lengths of the rectangle's 4 sides.");
+        Console.WriteLine("We'll calculate the area of a rectangle based off of the lengths of the rectangle's 2 sides.");
         Console.WriteLine("Please enter a number:");
         string userNumber1 = Console.ReadLine();
         Console.WriteLine("Enter another number:");
         string userNumber2 = Console.ReadLine();
-        Console.WriteLine("Enter a third number:");
-        string userNumber3 = Console.ReadLine();
-        Console.WriteLine("Enter a fourth number:");
-        string userNumber4 = Console.ReadLine();
         int rectangleLength1 = int.Parse(userNumber1);
         int rectangleLength2 = int.Parse(userNumber2);
-        int rectangleLength3 = int.Parse(userNumber3);
-        int rectangleLength4 = int.Parse(userNumber4);
-        Rectangle rect = new Rectangle(rectangleLength1, rectangleLength2, rectangleLength3, rectangleLength4);
+        Rectangle rect = new Rectangle(rectangleLength1, rectangleLength2);
         ConfirmOrEditRectangle(rect);
         Rectangle.ClearAll();
       }
@@ -97,11 +91,13 @@ namespace ShapeTracker
       else if (userResponse == "list" || userResponse == "List")
       {
         Console.WriteLine("Here is a list of all the triangles you have created!");
+        Console.WriteLine("-----------------------------------------");
         List<Triangle> allTriangles = Triangle.GetAll();
         foreach (Triangle triangle in allTriangles)
         {
           Console.WriteLine($"You have a {triangle.CheckType()}.");
         }
+        Console.WriteLine("-----------------------------------------");
         Console.WriteLine("Please enter 'clear' if you would like to remove all triangles and start over.");
         Console.WriteLine("Otherwise, enter 'continue' to continue creating more triangles.");
         string userInput = Console.ReadLine();
@@ -128,8 +124,6 @@ namespace ShapeTracker
       Console.WriteLine("Please confirm that you entered in your rectangle correctly:");
       Console.WriteLine($"Side 1 has a length of {rect.Side1}.");
       Console.WriteLine($"Side 2 has a length of {rect.Side2}.");
-      Console.WriteLine($"Side 3 has a length of {rect.GetSide3()}.");
-      Console.WriteLine($"Side 4 has a length of {rect.GetSide4()}.");
       Console.WriteLine("Is that correct? Enter 'yes' to proceed, or 'no' to re-enter the rectangle's sides.");
       string userString = Console.ReadLine();
       if (userString == "yes" || userString == "Yes")
@@ -138,18 +132,12 @@ namespace ShapeTracker
       }
       else
       {
-        Console.WriteLine("Let's fix your rectangle. Please enter the 4 sides again!");
+        Console.WriteLine("Let's fix your rectangle. Please enter the 2 sides again!");
         string userNumber1 = Console.ReadLine();
         Console.WriteLine("Enter another number:");
         string userNumber2 = Console.ReadLine();
-        Console.WriteLine("Enter a third number:");
-        string userNumber3 = Console.ReadLine();
-        Console.WriteLine("Enter a fourth number:");
-        string userNumber4 = Console.ReadLine();
         rect.Side1 = int.Parse(userNumber1);
         rect.Side2 = int.Parse(userNumber2);
-        rect.SetSide3(int.Parse(userNumber3));
-        rect.SetSide4(int.Parse(userNumber4));
         ConfirmOrEditRectangle(rect);
       }
     }
@@ -157,13 +145,15 @@ namespace ShapeTracker
     static void CheckRectangleType(Rectangle rect)
     {
       string rectangleResult = rect.CheckType();
+      int areaOfRectangle = rect.GetArea();
       Console.WriteLine("-----------------------------------------");
       Console.WriteLine("Your result is: " + rectangleResult + ".");
+      Console.WriteLine("The area of your rectangle is: " + areaOfRectangle + ".");
       Console.WriteLine("-----------------------------------------");
       Console.WriteLine("What's next?");
-      Console.WriteLine("Would you like to check a new rectangle (new)?");
+      Console.WriteLine("Would you like to check and get the area of a new rectangle (new)?");
       Console.WriteLine("Or would you like to see a list of all rectangles you have created (list) ?");
-      Console.WriteLine("Please enter 'new' to check the type of a new rectangle or new triangle.");
+      Console.WriteLine("Please enter 'new' to check the type and get the area of a new rectangle, or  check a new triangle.");
       Console.WriteLine("You can also enter 'list' to see a list of all rectangles you have created.");
       string inputtedUserString = Console.ReadLine();
       if (inputtedUserString == "new" || inputtedUserString == "New")
@@ -172,12 +162,14 @@ namespace ShapeTracker
       }
       else if (inputtedUserString == "list" || inputtedUserString == "List")
       {
-        Console.WriteLine("Here is a list of all the triangles you have created!");
+        Console.WriteLine("Here is a list of all the rectangles you have created!");
+        Console.WriteLine("-----------------------------------------");
         List<Rectangle> allRectangles = Rectangle.GetAll();
         foreach (Rectangle rectangle in allRectangles)
         {
           Console.WriteLine($"You have a {rectangle.CheckType()}.");
         }
+        Console.WriteLine("-----------------------------------------");
         Console.WriteLine("Please enter 'clear' if you would like to remove all rectangles and start over.");
         Console.WriteLine("Otherwise, enter 'continue' to continue creating more rectangles.");
         string userDecision = Console.ReadLine();
@@ -198,7 +190,6 @@ namespace ShapeTracker
         Console.WriteLine("Goodbye!");
       }
     }
-
 
   }
 }
