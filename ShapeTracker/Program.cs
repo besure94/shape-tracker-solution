@@ -22,12 +22,22 @@ namespace ShapeTracker
         string stringNumber2 = Console.ReadLine();
         Console.WriteLine("Enter a third number:");
         string stringNumber3 = Console.ReadLine();
-        int length1 = int.Parse(stringNumber1);
-        int length2 = int.Parse(stringNumber2);
-        int length3 = int.Parse(stringNumber3);
-        Triangle tri = new Triangle(length1, length2, length3);
-        ConfirmOrEditTriangle(tri);
-        Triangle.ClearAll();
+        try
+        {
+          int length1 = int.Parse(stringNumber1);
+          int length2 = int.Parse(stringNumber2);
+          int length3 = int.Parse(stringNumber3);
+          Triangle tri = new Triangle(length1, length2, length3);
+          ConfirmOrEditTriangle(tri);
+          Triangle.ClearAll();
+        }
+        catch
+        {
+          Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+          Console.WriteLine("ERROR: Please only enter in numbers! Special symbols and alphabetic characters will not be accepted.");
+          Console.WriteLine("Please try again...");
+          Main();
+        }
       }
       else if (inputtedShape == "rectangle" || inputtedShape == "Rectangle")
       {
@@ -36,11 +46,21 @@ namespace ShapeTracker
         string userNumber1 = Console.ReadLine();
         Console.WriteLine("Enter another number:");
         string userNumber2 = Console.ReadLine();
-        int rectangleLength1 = int.Parse(userNumber1);
-        int rectangleLength2 = int.Parse(userNumber2);
-        Rectangle rect = new Rectangle(rectangleLength1, rectangleLength2);
-        ConfirmOrEditRectangle(rect);
-        Rectangle.ClearAll();
+        try
+        {
+          int rectangleLength1 = int.Parse(userNumber1);
+          int rectangleLength2 = int.Parse(userNumber2);
+          Rectangle rect = new Rectangle(rectangleLength1, rectangleLength2);
+          ConfirmOrEditRectangle(rect);
+          Rectangle.ClearAll();
+        }
+        catch
+        {
+          Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+          Console.WriteLine("ERROR: Please only enter in numbers! Special symbols and alphabetic characters will not be accepted.");
+          Console.WriteLine("Please try again...");
+          Main();
+        }
       }
     }
 
